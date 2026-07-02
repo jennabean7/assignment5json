@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form>
+            <select id="songs"></select>
+            <input type="button" value="Filter" id="filter">
+        </form>
+        <div id="songtitles"></div>
+
+        <script
+            src="https://code.jquery.com/jquery-4.0.0.min.js"
+            integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+            crossorigin="anonymous">//Import JQuery from CDN</script>
+
+        <script>
+            window.onload = function(){
+                // Get the json using $.get() (uploaded the file to a Github repo)
+                songs = $.get("https://raw.githubusercontent.com/jennabean7/assignment5json/refs/heads/main/songs.json", function(data){
+                    // Parsing as a JSON not a string bc this URL provides a raw file
+                    var songsjson = JSON.parse(data)
+                    // global variable that will allow for filtering based on Genre
+                    songsArray = Object.values(songsjson)
+                    // variables to store genre list and HTML output
+                    genreList = ""
+                    output = []
+
+                    // Format each object in the JSON and add to genreList (what will be displayed in the dropdown)
+                    for(var item in songsjson){
+                        var song = songsjson[item]
+                        // .join() will display the array as a formatted list
+                        for(const genre of song.genres){
+                            // Check if the genre is already included before adding to the list
+                            if(!output.includes(genre)){
+                                output.push(genre)
+                                genreList = genreList + `<option value="${genre}">${genre}</option>`;
+                            }
+                        }
+                    }
+
+                    // Display the dropdown values
+                    document.getElementById("songs").innerHTML = genreList
+
+                })
+
+                titleDiv = document.getElementById("songtitles");
+                filterBtn = document.getElementById("filter");
+
+                // onclick function for the Filter button
+                filterBtn.onclick = function(){
+                    // variable to store HTML output
+                    output = ""
+                    // Get the selected value from the dropdown
+                    selected = document.getElementById("songs").value
+                    // If any of the songs match the selected genre, display the song title
+                    for(var song of songsArray){
+                        if(song.genres.includes(selected)){
+                            output = output + `<p>${song.title}</p>`
+                        }
+                    }
+                    // Display the filtered songs in the div
+                    titleDiv.innerHTML = output
+                }
+            }
+
+        </script>
+    </body>
+</html>

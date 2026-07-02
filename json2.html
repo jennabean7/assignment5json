@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="songs">
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-4.0.0.min.js"
+            integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+            crossorigin="anonymous">//Import JQuery from CDN</script>
+        <script>
+            // Get the json using $.get() (uploaded the file to a Github repo)
+            songs = $.get("https://raw.githubusercontent.com/jennabean7/assignment5json/refs/heads/main/songs.json", function(data){
+                // Parsing as a JSON not a string bc this URL provides a raw file
+                var songsjson = JSON.parse(data)
+                var output = "";
+
+                // Format each object in the JSON and add to output
+                for(var item in songsjson){
+                    var song = songsjson[item]
+                    // .join() will display the array as a formatted list
+                    format_genres = song.genres.join(", ")
+                    output += `<p><strong>${song.title}</strong><br>Artist: ${song.artist}<br>Genre: ${format_genres}<br>Released ${song.releaseYear}</p>`
+                }
+
+                // Change the songs div inner HTML
+                $('#songs').html(output)
+            })
+        </script>
+
+        
+    </body>
+</html>
