@@ -2,49 +2,49 @@
     "song1": {
         "title": "Love Story",
         "artist": "Taylor Swift",
-        "release_year": "2008",
+        "releaseYear": "2008",
         "genres": ["Country", "Pop"]
     },
     "song2": {
         "title": "u + me = <3",
         "artist": "Olivia Rodrigo",
-        "release_year": "2026",
+        "releaseYear": "2026",
         "genres": ["Pop rock", "Alternative"]
     },
     "song3": {
         "title": "We Go Way Back",
         "artist": "Noah Kahan",
-        "release_year": "2026",
+        "releaseYear": "2026",
         "genres": ["Folk"]
     },
     "song4": {
         "title": "Haircut",
         "artist": "Noah Kahan",
-        "release_year": "2026",
+        "releaseYear": "2026",
         "genres": ["Folk"]
     },
     "song5": {
         "title": "Lavender Haze",
         "artist": "Taylor Swift",
-        "release_year": "2022",
+        "releaseYear": "2022",
         "genres": ["Synth-pop"]
     },
     "song6": {
         "title": "my way",
         "artist": "Olivia Rodrigo",
-        "release_year": "2026",
+        "releaseYear": "2026",
         "genres": ["Pop rock", "Alternative"]
     },
     "song7": {
         "title": "evermore (feat. Bon Iver)",
         "artist": "Taylor Swift",
-        "release_year": "2020",
+        "releaseYear": "2020",
         "genres": ["Alternative", "Folk"]
     },
     "song8": {
         "title": "my tears ricochet",
         "artist": "Taylor Swift",
-        "release_year": "2020",
+        "releaseYear": "2020",
         "genres": ["Indie", "Folk"]
     }
 }
